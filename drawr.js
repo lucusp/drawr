@@ -64,9 +64,13 @@ var drawr = (function (COLOR, SIZE) {
     };
 
     my.draw = function (c, s) {
-        COLOR = c;
-        SIZE = s;
+        if(!drawr.start()){
+            return;
+        } else {
+            COLOR = c;
+            SIZE = s;
         //console.log(COLOR + " " + SIZE);
+        }
     };
 
     my.ctx = function (a, b, x, y, dLineColor, dLineWidth, ctx) { //lineWidth & lineColor are optional; defaults are 1px & 'black'
