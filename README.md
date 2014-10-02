@@ -29,5 +29,6 @@ Coming Soon!
 * `drawr.disable();`
 * `drawr.start(canvasId, canvasWidth, canvasHeight);`
 * `drawr.save(save_name, save_data);`
+* touch support
 
 
