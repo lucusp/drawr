@@ -14,12 +14,12 @@ Hook drawr up to the id:
 
 `drawr.start('myCanvas');`
 
-Lastly, in the current version, start drawring (input COLOR & pen SIZE):
+Lastly, in the current version, start _drawring_ (input COLOR & pen SIZE):
 
 `drawr.draw('red', 4);`
 
 
-That's it! You're drawring now!! 
+That's it! You're _drawring_ now!! 
 
 Coming Soon!
 -----
