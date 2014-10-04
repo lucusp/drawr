@@ -29,6 +29,10 @@ Coming Soon!
 * `drawr.disable();`
 * `drawr.start(canvasId, canvasWidth, canvasHeight);`
 * `drawr.save(save_name, save_data);`
+* `drawr.fill();`
+* Path drawring
+* Shape selector
+* Layers
 * touch support
 
 
