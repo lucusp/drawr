@@ -18,6 +18,48 @@ var drawr = (function (COLOR, SIZE) {
             y: canvas_id.offsetTop
         };
 
+	if("ontouchstart" in document.documentElement){
+
+		canvas_id.addEventListener('touchstart', function (e) {
+
+            if (COLOR != undefined && SIZE != undefined) {
+
+                console.log(COLOR + " " + SIZE);
+                drawing = true;
+                console.log(drawing);
+                localPen.x = e.pageX - canvasPos.x;
+                localPen.y = e.pageY - canvasPos.y;
+
+            } else {
+
+                console.log('no drawing properties set');
+                return;
+
+            }
+
+        });
+
+        canvas_id.addEventListener('touchmove', function (e) {
+            var drawTo = {
+                x: e.pageX - canvasPos.x,
+                y: e.pageY - canvasPos.y
+            }
+            if (drawing) {
+                drawr.ctx(localPen.x, localPen.y, drawTo.x, drawTo.y, COLOR, SIZE, context);
+            }
+
+            localPen.x = drawTo.x;
+            localPen.y = drawTo.y;
+        });
+
+
+        canvas_id.addEventListener('touchend', function (e) {
+            drawing = false;
+        });
+
+
+	} else {
+		
 
         canvas_id.addEventListener('mousedown', function (e) {
 
