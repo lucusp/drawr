@@ -33,6 +33,6 @@ Coming Soon!
 * Path drawring
 * Shape selector
 * Layers
-* ``touch support
+* touch support - added 12/9/14
 
 
