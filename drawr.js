@@ -109,7 +109,7 @@ var drawr = (function (COLOR, SIZE) {
         canvas_id.addEventListener('mouseleave', function (e) {
             drawing = false;
         });
-
+	}
 
     };
 
