@@ -27,8 +27,8 @@ var drawr = (function (COLOR, SIZE) {
                 console.log(COLOR + " " + SIZE);
                 drawing = true;
                 console.log(drawing);
-                localPen.x = e.pageX - canvasPos.x;
-                localPen.y = e.pageY - canvasPos.y;
+                localPen.x = e.targetTouches[0].pageX - canvasPos.x;
+                localPen.y = e.targetTouches[0].pageY - canvasPos.y;
 
             } else {
 
@@ -41,8 +41,8 @@ var drawr = (function (COLOR, SIZE) {
 
         canvas_id.addEventListener('touchmove', function (e) {
             var drawTo = {
-                x: e.pageX - canvasPos.x,
-                y: e.pageY - canvasPos.y
+                x: e.targetTouches[0].pageX - canvasPos.x,
+                y: e.targetTouches[0].pageY - canvasPos.y
             }
             if (drawing) {
                 drawr.ctx(localPen.x, localPen.y, drawTo.x, drawTo.y, COLOR, SIZE, context);
