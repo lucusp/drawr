@@ -20,6 +20,8 @@ var drawr = (function (COLOR, SIZE) {
 
 	if("ontouchstart" in document.documentElement){
 
+		alert(canvasPos.x + " " + canvasPos.y);
+
 		canvas_id.addEventListener('touchstart', function (e) {
 
 		e.preventDefault();
