@@ -22,6 +22,8 @@ var drawr = (function (COLOR, SIZE) {
 
 		canvas_id.addEventListener('touchstart', function (e) {
 
+		e.preventDefault();
+
             if (COLOR != undefined && SIZE != undefined) {
 
                 console.log(COLOR + " " + SIZE);
@@ -40,6 +42,9 @@ var drawr = (function (COLOR, SIZE) {
         });
 
         canvas_id.addEventListener('touchmove', function (e) {
+
+	    e.preventDefault();
+
             var drawTo = {
                 x: e.targetTouches[0].pageX - canvasPos.x,
                 y: e.targetTouches[0].pageY - canvasPos.y
@@ -54,6 +59,9 @@ var drawr = (function (COLOR, SIZE) {
 
 
         canvas_id.addEventListener('touchend', function (e) {
+
+	     e.preventDefault();	
+
             drawing = false;
         });
 
