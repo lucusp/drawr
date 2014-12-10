@@ -18,9 +18,7 @@ var drawr = (function (COLOR, SIZE) {
             y: canvas_id.offsetTop
         };
 
-	if("ontouchstart" in document.documentElement){
-
-		alert(canvasPos.x + " " + canvasPos.y);
+	//touch events
 
 		canvas_id.addEventListener('touchstart', function (e) {
 
@@ -68,7 +66,7 @@ var drawr = (function (COLOR, SIZE) {
         });
 
 
-	} else {
+	//mouse events
 		
 
         canvas_id.addEventListener('mousedown', function (e) {
@@ -111,7 +109,7 @@ var drawr = (function (COLOR, SIZE) {
         canvas_id.addEventListener('mouseleave', function (e) {
             drawing = false;
         });
-	}
+	
 
     };
 
