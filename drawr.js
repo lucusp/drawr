@@ -89,16 +89,16 @@ var drawr = (function (COLOR, SIZE) {
         });
 
         canvas_id.addEventListener('mousemove', function (e) {
-            var drawTo = {
+            var mouseTo = {
                 x: e.pageX - canvasPos.x,
                 y: e.pageY - canvasPos.y
             }
             if (drawing) {
-                drawr.ctx(localPen.x, localPen.y, drawTo.x, drawTo.y, COLOR, SIZE, context);
+                drawr.ctx(localPen.x, localPen.y, mouseTo.x, mouseTo.y, COLOR, SIZE, context);
             }
 
-            localPen.x = drawTo.x;
-            localPen.y = drawTo.y;
+            localPen.x = mouseTo.x;
+            localPen.y = mouseTo.y;
         });
 
 
