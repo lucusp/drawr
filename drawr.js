@@ -24,7 +24,7 @@ var drawr = (function (COLOR, SIZE) {
 
 		e.preventDefault();
 
-            if (COLOR != undefined && SIZE != undefined) {
+            if (COLOR !== undefined && SIZE !== undefined) {
 
                 console.log(COLOR + " " + SIZE);
                 drawing = true;
@@ -60,18 +60,18 @@ var drawr = (function (COLOR, SIZE) {
 
         canvas_id.addEventListener('touchend', function (e) {
 
-	     e.preventDefault();	
+	     e.preventDefault();
 
             drawing = false;
         });
 
 
 	//mouse events
-		
+
 
         canvas_id.addEventListener('mousedown', function (e) {
 
-            if (COLOR != undefined && SIZE != undefined) {
+            if (COLOR !== undefined && SIZE !== undefined) {
 
                 console.log(COLOR + " " + SIZE);
                 drawing = true;
@@ -109,7 +109,7 @@ var drawr = (function (COLOR, SIZE) {
         canvas_id.addEventListener('mouseleave', function (e) {
             drawing = false;
         });
-	
+
 
     };
 
