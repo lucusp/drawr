@@ -1,7 +1,7 @@
 drawr.js
 =====
 
-A small html5 canvas drawing library focused on user input rather than programmable input.
+A small html5 canvas drawing library focused on user (mouse/touch) input rather than programmable input.
 
 Just include drawr.js in your html file:
 `<script src="../drawr.js"></script>`
