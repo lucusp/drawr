@@ -10,6 +10,11 @@ var drawr = (function (COLOR, SIZE) {
         var canvas_id = document.getElementById(id);
         var context = canvas_id.getContext('2d');
 
+        /* scaling bug fix */
+
+		canvas_id.width = window.innerWidth;
+		canvas_id.height = window.innerHeight;
+
         //create some utilities for draw function to use
         var localPen = {};
         var drawing = false;
