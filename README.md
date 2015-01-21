@@ -19,7 +19,7 @@ Lastly, in the current version, start _drawring_ (input COLOR & pen SIZE):
 `drawr.draw('red', 4);`
 
 
-That's it! You're _drawring_ now!! 
+That's it! You're _drawring_ now!!
 
 Coming Soon!
 -----
@@ -34,5 +34,3 @@ Coming Soon!
 * Shape selector
 * Layers
 * touch support - added 12/9/14
-
-

@@ -3,14 +3,19 @@ var SIZE;
 
 var drawr = (function (COLOR, SIZE) {
 
-    var my = {};
+    var _drawr = {};
 
-    my.start = function (id) {
+    _drawr.start = function (id) {
 
         var canvas_id = document.getElementById(id);
         var context = canvas_id.getContext('2d');
 
-        /* scaling bug fix */
+        /*
+            scaling bug fix
+            of course IE is
+            freaking out over this
+        */
+
 
 		canvas_id.width = window.innerWidth;
 		canvas_id.height = window.innerHeight;
@@ -118,13 +123,39 @@ var drawr = (function (COLOR, SIZE) {
 
     };
 
-    my.draw = function (c, s) {
+    _drawr.draw = function (c, s) {
         COLOR = c;
         SIZE = s;
         //console.log(COLOR + " " + SIZE);
     };
 
-    my.ctx = function (a, b, x, y, dLineColor, dLineWidth, ctx) { //lineWidth & lineColor are optional; defaults are 1px & 'black'
+    _drawr.addLayer = function (canvas_container_id, new_canvas_id, optional_class_name){
+
+        var canvas_container = document.getElementById(canvas_container_id);
+
+        var new_canvas_layer = document.createElement('CANVAS');
+        var new_layer_context = new_canvas_layer.getContext('2d');
+
+        if(!optional_class_name){
+
+            new_canvas_layer.className = "";
+
+        } else {
+
+            new_canvas_layer.className = optional_class_name;
+
+        }
+
+        new_canvas_layer.id = new_canvas_id;
+
+        canvas_container.appendChild(new_canvas_layer);
+
+    };
+
+
+    //utils
+
+    _drawr.ctx = function (a, b, x, y, dLineColor, dLineWidth, ctx) { //lineWidth & lineColor are optional; defaults are 1px & 'black'
         var context = ctx;
         context.lineJoin = 'round';
         context.beginPath();
@@ -137,6 +168,6 @@ var drawr = (function (COLOR, SIZE) {
 
     };
 
-    return my;
+    return _drawr;
 
 }(COLOR, SIZE));
