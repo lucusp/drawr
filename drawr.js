@@ -129,7 +129,8 @@ var drawr = (function (COLOR, SIZE) {
         //console.log(COLOR + " " + SIZE);
     };
 
-    _drawr.addLayer = function (canvas_container_id, new_canvas_id, optional_class_name){
+    //assumes that the canvases are nested
+    _drawr.newLayer = function (canvas_container_id, new_canvas_id, optional_class_name){
 
         var canvas_container = document.getElementById(canvas_container_id);
 
@@ -151,7 +152,6 @@ var drawr = (function (COLOR, SIZE) {
         canvas_container.appendChild(new_canvas_layer);
 
     };
-
 
     //utils
 
