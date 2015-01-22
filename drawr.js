@@ -170,6 +170,8 @@ var drawr = (function (COLOR, SIZE) {
 
         var selectedColor = rgbToHex(p[0], p[1], p[2]);
 
+        return selectedColor;
+
     };
 
     //utils
