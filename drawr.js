@@ -150,9 +150,9 @@ var drawr = (function (COLOR, SIZE) {
 
     };
 
-    _drawr.colorPicker = function(color_canvas){ //pass in object literal ex: {id: "myCanvas", x: 25, y: 50}
+    _drawr.colorPicker = function(color_canvas){ //pass in object literal ex: {c_id: "myCanvas", x: 25, y: 50}
 
-        var colorCanvas = document.getElementById(color_canvas.id);
+        var colorCanvas = document.getElementById(color_canvas.c_id);
         var ccCTX = colorCanvas.getContext('2d');
 
         var p = ccCTX.getImageData(color_canvas.x, color_canvas.y, 1, 1).data;
