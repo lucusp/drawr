@@ -129,7 +129,6 @@ var drawr = (function (COLOR, SIZE) {
         var canvas_container = document.getElementById(canvas_container_id);
 
         var new_canvas_layer = document.createElement('CANVAS');
-        var new_layer_context = new_canvas_layer.getContext('2d');
 
         if(!optional_class_name){
 
@@ -144,6 +143,8 @@ var drawr = (function (COLOR, SIZE) {
         new_canvas_layer.id = new_canvas_id;
 
         canvas_container.appendChild(new_canvas_layer);
+
+        _drawr.start(new_canvas_layer.id);
 
     };
 
@@ -166,8 +167,6 @@ var drawr = (function (COLOR, SIZE) {
             }
 
         var selectedColor = rgbToHex(p[0], p[1], p[2]);
-
-        return selectedColor;
 
     };
 
