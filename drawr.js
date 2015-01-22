@@ -14,6 +14,8 @@ var drawr = (function (COLOR, SIZE) {
             scaling bug fix
             of course IE is
             freaking out over this
+            // need to make default
+            // settings
         */
 
 
