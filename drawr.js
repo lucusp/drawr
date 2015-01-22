@@ -123,12 +123,6 @@ var drawr = (function (COLOR, SIZE) {
 
     };
 
-    _drawr.draw = function (c, s) {
-        COLOR = c;
-        SIZE = s;
-        //console.log(COLOR + " " + SIZE);
-    };
-
     //assumes that the canvases are nested
     _drawr.newLayer = function (canvas_container_id, new_canvas_id, optional_class_name){
 
@@ -153,7 +147,36 @@ var drawr = (function (COLOR, SIZE) {
 
     };
 
+    _drawr.colorPicker = function(color_canvas){ //pass in object literal ex: {id: "myCanvas", x: 25, y: 50}
+
+        var colorCanvas = document.getElementById(color_canvas.id);
+        var ccCTX = colorCanvas.getContext('2d');
+
+        var p = ccCTX.getImageData(color_canvas.x, color_canvas.y, 1, 1).data;
+
+            /* Convert each r, g, b value to Hex value */
+            function componentToHex(c){
+            	var hex = c.toString(16);
+            	return hex.length == 1 ? "0" + hex : hex;
+            }
+
+            /* Take r, g, b components and combine to 1 hex value */
+            function rgbToHex(r, g, b) {
+            	return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+            }
+
+        var selectedColor = rgbToHex(p[0], p[1], p[2]);
+
+        return selectedColor;
+
+    };
+
     //utils
+    _drawr.draw = function (c, s) {
+        COLOR = c;
+        SIZE = s;
+        //console.log(COLOR + " " + SIZE);
+    };
 
     _drawr.ctx = function (a, b, x, y, dLineColor, dLineWidth, ctx) { //lineWidth & lineColor are optional; defaults are 1px & 'black'
         var context = ctx;
