@@ -5,9 +5,9 @@ var drawr = (function (COLOR, SIZE) {
 
     var _drawr = {};
 
-    _drawr.start = function (id) {
+    _drawr.start = function (canvas_params/*ex: {id: "myCanvas", w: 250, h: 250}*/ ) {
 
-        var canvas_id = document.getElementById(id);
+        var canvas_id = document.getElementById(canvas_params.id);
         var context = canvas_id.getContext('2d');
 
         /*
@@ -19,8 +19,8 @@ var drawr = (function (COLOR, SIZE) {
         */
 
 
-		canvas_id.width = window.innerWidth;
-		canvas_id.height = window.innerHeight;
+		canvas_id.width = canvas_params.w;
+		canvas_id.height = canvas_params.h;
 
         //create some utilities for draw function to use
         var localPen = {};
