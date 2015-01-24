@@ -17,10 +17,12 @@ var drawr = (function (COLOR, SIZE) {
             // need to make default
             // settings
         */
+        // *** set default height width ***
+        var canvasWidth = canvas_params.w || 250;
+        var canvasHeight = canvas_params.h || 250;
 
-
-		canvas_id.width = canvas_params.w;
-		canvas_id.height = canvas_params.h;
+		canvas_id.width = canvasWidth;
+		canvas_id.height = canvasHeight;
 
         //create some utilities for draw function to use
         var localPen = {};
