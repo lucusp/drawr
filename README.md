@@ -1,3 +1,5 @@
+_this is all pretty outdated: new readme coming soon_
+
 drawr.js
 =====
 
