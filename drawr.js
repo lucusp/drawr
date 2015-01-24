@@ -128,33 +128,27 @@ var drawr = (function (COLOR, SIZE) {
     };
 
     //assumes that the canvases are nested
-    _drawr.newLayer = function (canvas_container_id, new_canvas_id, optional_class_name){
+    // **** Pass in object literal ****
+    // **** ex: {id: "canvas-wrapper", newId: "layer-x", classname: "layers"}
+    _drawr.newLayer = function (c){
 
-        var canvas_container = document.getElementById(canvas_container_id);
+        var canvasContainer = document.getElementById(c.id);
 
-        var new_canvas_layer = document.createElement('CANVAS');
+        var newCanvasLayer = document.createElement('CANVAS');
 
-        if(!optional_class_name){
+        newCanvasLayer.className = c.classname || "";
 
-            new_canvas_layer.className = "";
+        newCanvasLayer.id = c.newId;
 
-        } else {
+        canvasContainer.appendChild(newCanvasLayer);
 
-            new_canvas_layer.className = optional_class_name;
-
-        }
-
-        new_canvas_layer.id = new_canvas_id;
-
-        canvas_container.appendChild(new_canvas_layer);
-
-        _drawr.start(new_canvas_layer.id);
+        _drawr.start(newCanvasLayer.id);
 
     };
 
     _drawr.colorPicker = function(color_canvas){ //pass in object literal ex: {c_id: "myCanvas", x: 25, y: 50}
 
-        var colorCanvas = document.getElementById(color_canvas.c_id);
+        var colorCanvas = document.getElementById(color_canvas.id);
         var ccCTX = colorCanvas.getContext('2d');
 
         var p = ccCTX.getImageData(color_canvas.x, color_canvas.y, 1, 1).data;
