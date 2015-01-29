@@ -170,6 +170,57 @@ var drawr = (function (COLOR, SIZE) {
 
     };
 
+    /*
+        DRAWING TOOLS:
+        1)Path
+        2)Shapes
+            i) rectangles - 1/28/15
+            ii) circles
+    */
+
+    _drawr.rect = function(inputs){//{canvas: 'id', x: startx, y: starty, xx: endx, yy: endy}
+
+        var canvas = inputs.canvas;
+        var context = canvas.getContext('2d');
+
+        var begPoint = {
+            x: inputs.x,
+            y: inputs.y
+        };
+
+        var endPoint = {
+            x: inputs.xx,
+            y: inputs.yy
+        };
+
+        var strokePoint = {
+            x: begPoint.x,
+            y: begPoint.y
+        };
+
+        var rectAttr = {
+            w: endPoint.x - begPoint.x,
+            h: endPoint.y - begPoint.y
+        };
+
+        if(endPoint.x < begPoint.x){
+
+            strokePoint.x = endPoint.x;
+            rectAttr.w = begPoint.x - endPoint.x;
+
+        } else if(endPoint.y < begPoint.y){
+
+            strokePoint.y = endPoint.y;
+            rectAttr.h = begPoint.y - endPoint.y;
+
+        }
+
+        context.beginPath();
+        context.rect(strokePoint.x, strokePoint.y, rectAttr.w, rectAttr.h);
+        context.stroke();
+
+    };
+
     //utils
     _drawr.draw = function (c, s) {
         COLOR = c;
