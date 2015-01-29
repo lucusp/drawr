@@ -180,7 +180,7 @@ var drawr = (function (COLOR, SIZE) {
 
     _drawr.rect = function(inputs){//{canvas: 'id', x: startx, y: starty, xx: endx, yy: endy}
 
-        var canvas = inputs.canvas;
+        var canvas = document.getElementById(inputs.canvas);
         var context = canvas.getContext('2d');
 
         var begPoint = {
