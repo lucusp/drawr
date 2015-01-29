@@ -216,6 +216,8 @@ var drawr = (function (COLOR, SIZE) {
         }
 
         context.beginPath();
+        context.lineWidth = inputs.lineWidth || 1;
+        context.strokeStyle = inputs.lineColor || "#000";
         context.rect(strokePoint.x, strokePoint.y, rectAttr.w, rectAttr.h);
         context.stroke();
 
