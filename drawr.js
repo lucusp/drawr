@@ -217,8 +217,20 @@ var drawr = (function (COLOR, SIZE) {
 
         context.beginPath();
         context.lineWidth = inputs.lineWidth || 1;
-        context.strokeStyle = inputs.lineColor || "#000";
-        context.rect(strokePoint.x, strokePoint.y, rectAttr.w, rectAttr.h);
+
+        if(inputs.fillColor){
+
+            context.fillStyle = inputs.fillColor;
+            context.fillRect(strokePoint.x, strokePoint.y, rectAttr.w, rectAttr.h);
+
+        } else {
+
+            context.strokeStyle = inputs.lineColor || "#000";
+            context.rect(strokePoint.x, strokePoint.y, rectAttr.w, rectAttr.h);
+
+
+        }
+
         context.stroke();
 
     };
