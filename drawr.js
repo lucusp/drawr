@@ -224,12 +224,9 @@ var drawr = (function (COLOR, SIZE) {
             context.fillStyle = inputs.fillColor;
             context.fillRect(strokePoint.x, strokePoint.y, rectAttr.w, rectAttr.h);
 
-        } else {
-
-            context.rect(strokePoint.x, strokePoint.y, rectAttr.w, rectAttr.h);
-
         }
 
+        context.rect(strokePoint.x, strokePoint.y, rectAttr.w, rectAttr.h);
         context.stroke();
 
     };
