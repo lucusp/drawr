@@ -219,15 +219,15 @@ var drawr = (function (COLOR, SIZE) {
         context.lineWidth = inputs.lineWidth || 1;
         context.strokeStyle = inputs.lineColor || "";
 
+        context.rect(strokePoint.x, strokePoint.y, rectAttr.w, rectAttr.h);
+        context.stroke();
+
         if(inputs.fillColor){
 
             context.fillStyle = inputs.fillColor;
-            context.fillRect(strokePoint.x, strokePoint.y, rectAttr.w, rectAttr.h);
+            context.fill();
 
         }
-
-        context.rect(strokePoint.x, strokePoint.y, rectAttr.w, rectAttr.h);
-        context.stroke();
 
     };
 
