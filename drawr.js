@@ -18,8 +18,8 @@ var drawr = (function (COLOR, SIZE) {
             // settings
         */
         // *** set default height width ***
-        var canvasWidth = canvas_params.w || 250;
-        var canvasHeight = canvas_params.h || 250;
+        var canvasWidth = canvas_params.w || window.innerWidth;
+        var canvasHeight = canvas_params.h || window.innerHeight;
 
 		canvas_id.width = canvasWidth;
 		canvas_id.height = canvasHeight;
