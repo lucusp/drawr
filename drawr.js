@@ -50,8 +50,8 @@ var drawr = (function (COLOR, SIZE) {
                 console.log(COLOR + " " + SIZE);
                 drawing = true;
                 console.log(drawing);
-                localPen.x = (e.targetTouches[0].clientX - rectLeft) * cssScaleX;
-                localPen.y = (e.targetTouches[0].clientY - rectTop) * cssScaleY;
+                localPen.x = e.targetTouches[0].pageX - e.targetTouches[0].target.offsetLeft;
+                localPen.y = e.targetTouches[0].pageY - e.targetTouches[0].target.offsetTop;
 
             } else {
 
@@ -67,8 +67,8 @@ var drawr = (function (COLOR, SIZE) {
 	    e.preventDefault();
 
             var drawTo = {
-                x: (e.targetTouches[0].clientX - rectLeft) * cssScaleX,
-                y: (e.targetTouches[0].clientY - rectTop) * cssScaleY
+                x: e.targetTouches[0].pageX - e.targetTouches[0].target.offsetLeft,
+                y: e.targetTouches[0].pageY - e.targetTouches[0].target.offsetTop
             }
             if (drawing) {
                 drawr.ctx(localPen.x, localPen.y, drawTo.x, drawTo.y, COLOR, SIZE, context);
@@ -97,8 +97,8 @@ var drawr = (function (COLOR, SIZE) {
                 console.log(COLOR + " " + SIZE);
                 drawing = true;
                 console.log(drawing);
-                localPen.x = (e.targetTouches[0].clientX - rectLeft) * cssScaleX;
-                localPen.y = (e.targetTouches[0].clientY - rectTop) * cssScaleY;
+                localPen.x = e.targetTouches[0].pageX - e.targetTouches[0].target.offsetLeft;
+                localPen.y = e.targetTouches[0].pageY - e.targetTouches[0].target.offsetTop;
 
             } else {
 
