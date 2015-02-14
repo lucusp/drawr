@@ -50,8 +50,8 @@ var drawr = (function (COLOR, SIZE) {
                 console.log(COLOR + " " + SIZE);
                 drawing = true;
                 console.log(drawing);
-                localPen.x = e.targetTouches[0].pageX - e.targetTouches[0].target.offsetLeft;
-                localPen.y = e.targetTouches[0].pageY - e.targetTouches[0].target.offsetTop;
+                localPen.x = e.targetTouches[0].pageX - canvasPos.x;
+                localPen.y = e.targetTouches[0].pageY - canvasPos.y;
 
             } else {
 
@@ -67,8 +67,8 @@ var drawr = (function (COLOR, SIZE) {
 	    e.preventDefault();
 
             var drawTo = {
-                x: e.targetTouches[0].pageX - e.targetTouches[0].target.offsetLeft,
-                y: e.targetTouches[0].pageY - e.targetTouches[0].target.offsetTop
+                x: e.targetTouches[0].pageX - canvasPos.x,
+                y: e.targetTouches[0].pageY - canvasPos.y
             }
             if (drawing) {
                 drawr.ctx(localPen.x, localPen.y, drawTo.x, drawTo.y, COLOR, SIZE, context);
