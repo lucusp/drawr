@@ -32,6 +32,13 @@ var drawr = (function (COLOR, SIZE) {
             y: canvas_id.offsetTop
         };
 
+	var rect = canvas_id.getBoundingClientRect();
+       var rectLeft = rect.left;
+       var rectTop = rect.top;
+
+       var cssScaleX = Math.round(canvas_id.width / canvas_id.offsetWidth);
+       var cssScaleY = Math.round(canvas_id.height / canvas_id.offsetHeight);
+
 	//touch events
 
 		canvas_id.addEventListener('touchstart', function (e) {
@@ -43,8 +50,8 @@ var drawr = (function (COLOR, SIZE) {
                 console.log(COLOR + " " + SIZE);
                 drawing = true;
                 console.log(drawing);
-                localPen.x = e.targetTouches[0].pageX - canvasPos.x;
-                localPen.y = e.targetTouches[0].pageY - canvasPos.y;
+                localPen.x = (e.targetTouches[0].clientX - rectLeft) * cssScaleX;
+                localPen.y = (e.targetTouches[0].clientY - rectTop) * cssScaleY;
 
             } else {
 
@@ -60,8 +67,8 @@ var drawr = (function (COLOR, SIZE) {
 	    e.preventDefault();
 
             var drawTo = {
-                x: e.targetTouches[0].pageX - canvasPos.x,
-                y: e.targetTouches[0].pageY - canvasPos.y
+                x: (e.targetTouches[0].clientX - rectLeft) * cssScaleX,
+                y: (e.targetTouches[0].clientY - rectTop) * cssScaleY
             }
             if (drawing) {
                 drawr.ctx(localPen.x, localPen.y, drawTo.x, drawTo.y, COLOR, SIZE, context);
@@ -90,8 +97,8 @@ var drawr = (function (COLOR, SIZE) {
                 console.log(COLOR + " " + SIZE);
                 drawing = true;
                 console.log(drawing);
-                localPen.x = e.pageX - canvasPos.x;
-                localPen.y = e.pageY - canvasPos.y;
+                localPen.x = (e.targetTouches[0].clientX - rectLeft) * cssScaleX;
+                localPen.y = (e.targetTouches[0].clientY - rectTop) * cssScaleY;
 
             } else {
 
@@ -104,8 +111,8 @@ var drawr = (function (COLOR, SIZE) {
 
         canvas_id.addEventListener('mousemove', function (e) {
             var mouseTo = {
-                x: e.pageX - canvasPos.x,
-                y: e.pageY - canvasPos.y
+                x: (e.targetTouches[0].clientX - rectLeft) * cssScaleX,
+                y: (e.targetTouches[0].clientY - rectTop) * cssScaleY
             }
             if (drawing) {
                 drawr.ctx(localPen.x, localPen.y, mouseTo.x, mouseTo.y, COLOR, SIZE, context);
