@@ -139,10 +139,12 @@ var drawr = (function (COLOR, SIZE) {
         newCanvasLayer.className = c.classname || "";
 
         newCanvasLayer.id = c.newId;
+      
+        newCanvasLayer.zIndex = c.zIndex;
 
         canvasContainer.appendChild(newCanvasLayer);
 
-        _drawr.start(newCanvasLayer.id);
+        _drawr.start({id: newCanvasLayer.id, w: c.w, h: c.h});
 
     };
 
@@ -249,6 +251,12 @@ var drawr = (function (COLOR, SIZE) {
         context.lineWidth = dLineWidth;
         context.stroke();
 
+    };
+  
+    _drawr.clear = function(c) {
+      var canvas = document.getElementById(c.id);
+      var context = canvas.getContext('2d');
+      context.clearRect(0, 0, canvas.width, canvas.height);
     };
 
     return _drawr;
